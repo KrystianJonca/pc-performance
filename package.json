@@ -29,7 +29,9 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
-    "commander": "^2.18.0"
+    "commander": "^2.18.0",
+    "information": "0.0.1",
+    "systeminformation": "^3.45.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
