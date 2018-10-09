@@ -1,24 +1,30 @@
 import si from 'systeminformation'
 import chalk from 'chalk'
+import ora from 'ora'
+
+const loading = ora('Loading... Please wait it may take a minute')
 
 export default {
   // Main function
   async createMessage (program) {
     let msg = chalk`{bold.cyan Here are the informations what you asked for:}\n`
 
-    if (program.spec) msg += await this.pcSpec()
-    if (program.cpu) msg += await this.cpuUsage()
-    if (program.cemory) msg += await this.memoryUsage()
-    if (program.disk) msg += await this.diskUsage()
-
     if (!program.spec && !program.cpu && !program.memory && !program.disk) {
+      loading.start()
       msg += await this.pcSpec()
       msg += await this.cpuUsage()
       msg += await this.memoryUsage()
       msg += await this.diskUsage()
+      loading.stop()
 
       return msg
     }
+    loading.start()
+    if (program.spec) msg += await this.pcSpec()
+    if (program.cpu) msg += await this.cpuUsage()
+    if (program.cemory) msg += await this.memoryUsage()
+    if (program.disk) msg += await this.diskUsage()
+    loading.stop()
 
     return msg
   },
@@ -30,7 +36,7 @@ export default {
     const moba = await si.baseboard()
     const gpu = await si.graphics()
     const ram = await si.mem()
-
+    
     const msg = chalk`{bold.green ---- PC SPEC ----}\n{bold.green OS:} ${os.distro} ${os.arch}\n{bold.green CPU:} ${cpu.manufacturer} ${cpu.brand} (${cpu.speed}Ghz ${cpu.cores} Cores)\n{bold.green GPU:} ${gpu.controllers[0].model}(${gpu.controllers[0].vram} VRAM)\n{bold.green MOBA:} ${moba.manufacturer} ${moba.model}\n{bold.green RAM:} ${this.bytesToGb(ram.total)}\n{bold.green BATTERY:} ${battery.hasbatter ? `${battery.manufacturer} ${battery.model} (${battery.percent} ${battery.ischarging ? chalk`{bold ⚡️}` : ''})` : chalk.bold.red('X')}\n`
 
     return msg
