@@ -9,7 +9,6 @@ program
   .option('-c, --cpu', 'Display CPU Usage')
   .option('-m, --memory', 'Display Memory Usage')
   .option('-d, --disk', 'Display Disk Usage')
-  .option('-b, --battery', 'Battery information')
   .parse(process.argv)
 
 helpers.createMessage(program).then(msg => {
