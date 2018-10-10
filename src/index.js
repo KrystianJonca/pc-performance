@@ -5,10 +5,13 @@ import { version } from '../package'
 
 program
   .version(version, '-v, -version')
-  .option('-s, --spec', 'Display PC Specification')
-  .option('-c, --cpu', 'Display CPU Usage')
-  .option('-m, --memory', 'Display Memory Usage')
-  .option('-d, --disk', 'Display Disk Usage')
+  .option('-o, --os', 'Display OS information')
+  .option('-c, --cpu', 'Display CPU information')
+  .option('-g, --gpu', 'Display GPU information')
+  .option('-m, --moba', 'Display MOBA information')
+  .option('-b, --battery', 'Display Battery information')
+  .option('-me, --memory', 'Display Memory information')
+  .option('-d, --disk', 'Display Disk information')
   .parse(process.argv)
 
 helpers.createMessage(program).then(msg => {
