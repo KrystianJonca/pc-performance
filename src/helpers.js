@@ -42,7 +42,7 @@ export default {
     // const gpu = await si.graphics()
     // const ram = await si.mem()
 
-    // const msg = chalk`{bold.green ---- PC SPEC ----}\n{bold.green GPU:} ${gpu.controllers[0].model}(${gpu.controllers[0].vram} VRAM)\n{bold.green MOBA:} ${moba.manufacturer} ${moba.model}\n{bold.green RAM:} ${this.bytesToGb(ram.total)}\n{bold.green BATTERY:} ${battery.hasbatter ? `${battery.manufacturer} ${battery.model} (${battery.percent} ${battery.ischarging ? chalk`{bold ⚡️}` : ''})` : chalk.bold.red('X')}\n`
+    // const msg = chalk`{bold.green ---- PC SPEC ----}\n\n{bold.green RAM:} ${this.bytesToGb(ram.total)}\n{bold.green BATTERY:} ${battery.hasbatter ? `${battery.manufacturer} ${battery.model} (${battery.percent} ${battery.ischarging ? chalk`{bold ⚡️}` : ''})` : chalk.bold.red('X')}\n`
 
     // return msg
   },
@@ -57,22 +57,27 @@ export default {
     const cpu = await si.cpu()
     const speed = await si.cpuCurrentspeed()
 
-    const msg = chalk`{bold.green ---- CPU ----}\n{bold.green CPU:} ${cpu.manufacturer} ${cpu.brand}\n{bold.green Family:}${cpu.family}\n{bold.green Speed max/min} ${speed.max}/${speed.min}\n{bold.green Cores:}${cpu.cores}\n{bold.green Current speed:} ${speed.avg}Ghz\n`
+    const msg = chalk`{bold.green ---- CPU ----}\n{bold.green CPU:} ${cpu.manufacturer} ${cpu.brand}\n{bold.green Family:} ${cpu.family}\n{bold.green Speed max/min} ${speed.max}/${speed.min}\n{bold.green Cores:} ${cpu.cores}\n{bold.green Current speed:} ${speed.avg}Ghz\n`
 
     return msg
   },
   async gpuInfo () {
-    const msg = chalk`{bold.green ---- GPU ----}\n Coming soon! \n`
+    const gpu = await si.graphics()
+    const msg = chalk`{bold.green ---- GRAPHICS ----}\n{bold.green GPU:} ${gpu.controllers[0].model}\n{bold.green VRAM:} ${gpu.controllers[0].vram}\n{bold.green Display:} ${gpu.displays[0].model}\n{bold.green Resolution:} ${gpu.displays[0].resolutionx}/${gpu.displays[0].resolutiony}px\n`
 
     return msg
   },
   async mobaInfo () {
-    const msg = chalk`{bold.green ---- MOBA ----}\n Coming soon! \n`
+    const moba = await si.baseboard()
+    const bios = await si.bios()
+
+    const msg = chalk`{bold.green ---- MOBA ----}\n{bold.green MOBA:} ${moba.manufacturer} ${moba.model}\n{bold.green VERSION:} ${moba.version}\n{bold.green BIOS VERSION:} ${bios.version}\n`
 
     return msg
   },
   async batteryInfo () {
-    const msg = chalk`{bold.green ---- BATTERY ----}\n Coming soon! \n`
+    const battery = await si.battery()
+    const msg = chalk`{bold.green ---- BATTERY ----}\n ${battery.hasbatter ? `${battery.manufacturer} ${battery.model} (${battery.percent} ${battery.ischarging ? chalk`{bold ⚡️}` : ''})` : chalk.bold.red('X')}\n`
 
     return msg
   },
