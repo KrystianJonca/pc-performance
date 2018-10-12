@@ -21,11 +21,11 @@
     "disk"
   ],
   "author": "Krystian Jońca <krystianjonca43@gmail.com>",
-  "repository": "https://github.com/KrystianJonca/",
+  "repository": "https://github.com/KrystianJonca/pc-performance",
   "bugs": {
-    "url": "https://github.com/KrystianJonca/repo/issues"
+    "url": "https://github.com/KrystianJonca/pc-performance/issues"
   },
-  "homepage": "https://github.com/KrystianJonca/repo#readme",
+  "homepage": "https://github.com/KrystianJonca/pc-performance#readme",
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
