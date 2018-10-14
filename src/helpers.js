@@ -36,16 +36,6 @@ export default {
     return msg
   },
   // Helpers
-  async pcSpec () {
-    // const battery = await si.battery()
-    // const moba = await si.baseboard()
-    // const gpu = await si.graphics()
-    // const ram = await si.mem()
-
-    // const msg = chalk`{bold.green ---- PC SPEC ----}\n\n{bold.green RAM:} ${this.bytesToGb(ram.total)}\n{bold.green BATTERY:} ${battery.hasbatter ? `${battery.manufacturer} ${battery.model} (${battery.percent} ${battery.ischarging ? chalk`{bold ⚡️}` : ''})` : chalk.bold.red('X')}\n`
-
-    // return msg
-  },
   async osInfo () {
     const os = await si.osInfo()
 
