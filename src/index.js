@@ -4,7 +4,7 @@ import helpers from './helpers'
 import { version } from '../package'
 
 program
-  .version(version, '-v, -version')
+  .version(version, '-v, --version')
   .option('-o, --os', 'Display OS information')
   .option('-c, --cpu', 'Display CPU information')
   .option('-g, --gpu', 'Display GPU information')
