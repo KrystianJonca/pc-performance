@@ -32,5 +32,8 @@ Type `pc` in your terminal to get all information about your PC or add the follo
 ## 🔧 Build using
  - [Babel](https://babeljs.io/)
 
+## ⌛️ CHANGELOG
+**[1.0.0](https://www.npmjs.com/package/pc-performance/v/1.0.0) -** Initial project
+
 ## 📋 License
 MIT License - see the [LICENSE.md](LICENSE) file for details
