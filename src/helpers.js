@@ -80,7 +80,13 @@ export default {
     return msg
   },
   async diskInfo () {
-    const msg = chalk`{bold.green ---- DISKs ----}\nComing soon!\n`
+    const disks = await si.diskLayout()
+
+    let msg = chalk`{bold.green ---- DISKs ----}\n`
+
+    for (let i in disks) {
+      msg += chalk`{bold.yellow  -DISK ${i}-}\n{bold.green NAME:} ${disks[i].name} ${disks[i].vendor}\n{bold.green SIZE:} ${this.bytesToGb(disks[i].size)}GB\n{bold.green TYPE:} ${disks[i].type}\n`
+    }
 
     return msg
   },
