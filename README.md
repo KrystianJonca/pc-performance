@@ -33,7 +33,7 @@ Type `pc` in your terminal to get all information about your PC or add the follo
  - [Babel](https://babeljs.io/)
 
 ## ⌛️ CHANGELOG
-**[1.0.0](https://www.npmjs.com/package/pc-performance/v/1.0.0) -** Initial project
+**[1.0.0](https://www.npmjs.com/package/pc-performance/v/1.0.0) -** Initial project </br>
 **[1.1.0](https://www.npmjs.com/package/pc-performance/v/1.1.0) -** Add memory information
 
 
