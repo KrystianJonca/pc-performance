@@ -72,18 +72,21 @@ export default {
     return msg
   },
   async memoryInfo () {
-    const msg = chalk`{bold.green ---- MEMORY ----}\n Coming soon! \n`
+    const mem = await si.mem()
+    const memL = await si.memLayout()
+
+    const msg = chalk`{bold.green ---- MEMORY ----}\n{bold.green RAM SIZE:} ${this.bytesToGb(mem.total)}GB\n{bold.green RAM SPEED:} ${memL[0].clockSpeed}Hz\n{bold.green RAM TYPE:} ${memL[0].type}\n{bold.green RAM USAGE:} ${Math.round(this.bytesToGb(mem.used) / this.bytesToGb(mem.total) * 100)}%\n`
 
     return msg
   },
   async diskInfo () {
-    const msg = chalk`{bold.green ---- DISKs ----}\n Coming soon! \n`
+    const msg = chalk`{bold.green ---- DISKs ----}\nComing soon!\n`
 
     return msg
   },
   bytesToGb (bytes) {
     if (bytes === 0) return '0 Byte'
     let i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
-    return `${Math.round(bytes / Math.pow(1024, i), 2)} GB`
+    return `${Math.round(bytes / Math.pow(1024, i), 2)}`
   }
 }
