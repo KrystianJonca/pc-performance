@@ -27,7 +27,7 @@ Type `pc` in your terminal to get all information about your PC or add the follo
 |   6   |    -m    |   --moba  |         Display MOBA information        |
 |   7   |    -b    | --battery |       Display Battery information       |
 |   8   |   -mem   |  --memory |        Display Memory information       |
-|   9   |    -d    |   --disk  |  Display Disk information(Coming soon)  |
+|   9   |    -d    |   --disk  |         Display Disk information        |
 
 ## 🔧 Build using
  - [Babel](https://babeljs.io/)
