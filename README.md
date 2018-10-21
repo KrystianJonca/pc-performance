@@ -26,7 +26,7 @@ Type `pc` in your terminal to get all information about your PC or add the follo
 |   5   |    -g    |   --gpu   |         Display GPU information         |
 |   6   |    -m    |   --moba  |         Display MOBA information        |
 |   7   |    -b    | --battery |       Display Battery information       |
-|   8   |   -mem   |  --memory | Display Memory information(Coming soon) |
+|   8   |   -mem   |  --memory |        Display Memory information       |
 |   9   |    -d    |   --disk  |  Display Disk information(Coming soon)  |
 
 ## 🔧 Build using
