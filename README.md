@@ -34,6 +34,8 @@ Type `pc` in your terminal to get all information about your PC or add the follo
 
 ## ⌛️ CHANGELOG
 **[1.0.0](https://www.npmjs.com/package/pc-performance/v/1.0.0) -** Initial project
+**[1.1.0](https://www.npmjs.com/package/pc-performance/v/1.1.0) -** Add memory information
+
 
 ## 📋 License
 MIT License - see the [LICENSE.md](LICENSE) file for details
