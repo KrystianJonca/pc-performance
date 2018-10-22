@@ -12,6 +12,7 @@ program
   .option('-b, --battery', 'Display Battery information')
   .option('-me, --memory', 'Display Memory information')
   .option('-d, --disk', 'Display Disk information')
+  .option('-n, --net', 'Display Internet speed information')
   .parse(process.argv)
 
 helpers.createMessage(program).then(msg => {

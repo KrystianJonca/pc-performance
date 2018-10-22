@@ -1,35 +1,71 @@
 import si from 'systeminformation'
 import chalk from 'chalk'
+import speedTest from 'speedtest-net'
 import ora from 'ora'
-
-const loading = ora('Loading... Please wait it may take a minute')
 
 export default {
   // Main function
   async createMessage (program) {
     let msg = chalk`{bold.cyan Here are the informations what you asked for:}\n`
 
-    if (!program.os && !program.cpu && !program.gpu && !program.moba && !program.battery && !program.memory && !program.disk) {
-      loading.start()
+    if (!program.os && !program.cpu && !program.gpu && !program.moba && !program.battery && !program.memory && !program.disk && !program.net) {
+      const loading = ora('Loading... Please wait it may take a minute').start()
+
+      loading.text = 'Loading OS Information...'
       msg += await this.osInfo()
+      loading.text = 'Loading CPU Information...'
       msg += await this.cpuInfo()
+      loading.text = 'Loading GPU Information...'
       msg += await this.gpuInfo()
+      loading.text = 'Loading MOBA Information...'
       msg += await this.mobaInfo()
+      loading.text = 'Loading Battery Information...'
       msg += await this.batteryInfo()
+      loading.text = 'Loading Memory Information...'
       msg += await this.memoryInfo()
+      loading.text = 'Loading Disks Information...'
       msg += await this.diskInfo()
+      loading.text = 'Testing Internet speed...'
+      msg += await this.netSpeed()
+      loading.text = 'Done!'
       loading.stop()
 
       return msg
     }
-    loading.start()
-    if (program.os) msg += await this.osInfo()
-    if (program.cpu) msg += await this.cpuInfo()
-    if (program.gpu) msg += await this.gpuInfo()
-    if (program.moba) msg += await this.mobaInfo()
-    if (program.battery) msg += await this.batteryInfo()
-    if (program.memory) msg += await this.memoryInfo()
-    if (program.disk) msg += await this.diskInfo()
+    const loading = ora('Loading... Please wait it may take a minute').start()
+    if (program.os) {
+      loading.text = 'Loading OS Information...'
+      msg += await this.osInfo()
+    }
+    if (program.cpu) {
+      loading.text = 'Loading CPU Information...'
+      msg += await this.cpuInfo()
+    }
+    if (program.gpu) {
+      loading.text = 'Loading GPU Information...'
+      msg += await this.gpuInfo()
+    }
+    if (program.moba) {
+      loading.text = 'Loading MOBA Information...'
+      msg += await this.mobaInfo()
+    }
+    if (program.battery) {
+      loading.text = 'Loading Battery Information...'
+      msg += await this.batteryInfo()
+    }
+    if (program.memory) {
+      loading.text = 'Loading Memory Information...'
+      msg += await this.memoryInfo()
+    }
+    if (program.disk) {
+      loading.text = 'Loading Disks Information...'
+      msg += await this.diskInfo()
+    }
+    if (program.net) {
+      loading.text = 'Testing Internet speed...'
+      msg += await this.netSpeed()
+    }
+    loading.text = 'Done!'
 
     loading.stop()
 
@@ -89,6 +125,21 @@ export default {
     }
 
     return msg
+  },
+  async netSpeed () {
+    let msg = chalk`{bold.green ---- INTERNET SPEED ----} \n`
+    let test = speedTest({ maxTime: 5000 })
+
+    return new Promise((resolve, reject) => {
+      test.on('data', data => {
+        msg += chalk`{bold.green SERVER:} ${data.server.sponsor} (${data.server.host})\n{bold.green PING:} ${Math.round(data.server.ping)}ms\n{bold.green DOWNLOAD:} ${Math.round(data.speeds.download)}Mbps\n{bold.green UPLOAD:} ${Math.round(data.speeds.upload)}Mbps\n`
+
+        resolve(msg)
+      })
+      test.on('error', err => {
+        reject(err)
+      })
+    })
   },
   bytesToGb (bytes) {
     if (bytes === 0) return '0 Byte'
