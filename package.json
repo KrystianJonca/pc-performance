@@ -28,12 +28,12 @@
   "homepage": "https://github.com/KrystianJonca/pc-performance#readme",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.1",
-    "commander": "^2.18.0",
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
     "information": "0.0.1",
-    "ora": "^3.0.0",
-    "speedtest-net": "^1.4.3",
-    "systeminformation": "^3.45.7"
+    "ora": "^3.4.0",
+    "speedtest-net": "^1.5.1",
+    "systeminformation": "^4.9.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
