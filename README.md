@@ -38,7 +38,9 @@ Type `pc` in your terminal to get all information about your PC or add the follo
 **[1.0.0](https://www.npmjs.com/package/pc-performance/v/1.0.0) -** Initial project </br>
 **[1.1.0](https://www.npmjs.com/package/pc-performance/v/1.1.0) -** Add memory information </br>
 **[1.2.0](https://www.npmjs.com/package/pc-performance/v/1.2.0) -** Add disks information </br>
-**[1.3.0](https://www.npmjs.com/package/pc-performance/v/1.3.0) -** Add Internet speed report
+**[1.3.0](https://www.npmjs.com/package/pc-performance/v/1.3.0) -** Add Internet speed report </br>
+**[1.4.0](https://www.npmjs.com/package/pc-performance/v/1.4.0) -** Update dependencies
+
 
 ## 📋 License
 MIT License - see the [LICENSE.md](LICENSE) file for details
